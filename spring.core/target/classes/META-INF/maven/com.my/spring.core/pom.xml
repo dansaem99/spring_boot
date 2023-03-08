@@ -1,0 +1,49 @@
+<project xmlns='http://maven.apache.org/POM/4.0.0' 
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+	xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 
+   https://maven.apache.org/xsd/maven-4.0.0.xsd'>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.my</groupId>
+   <artifactId>spring.core</artifactId>
+   <version>1.0</version>
+  
+   <properties>
+        <spring.ver>5.3.22</spring.ver> <!-- property name은 자유롭게 정한다. -->
+   </properties>
+   
+   <dependencies> <!-- spring core에서 의존하는, 라이브러리의 정보를 쓰면 메이븐이 알아서 설치를 해준다. -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-context</artifactId>
+         <version>${spring.ver}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.24</version>
+         <scope>provided</scope>  <!-- 내 제품에 포함시키지 않을때 지정해준다. -->
+      </dependency>
+      <dependency>
+      		<groupId>org.aspectj</groupId>
+      		<artifactId>aspectjweaver</artifactId>
+      		<version>1.9.9.1</version>
+      </dependency>
+      <dependency>
+      		<groupId>org.apache.logging.log4j</groupId>
+      		<artifactId>log4j-core</artifactId>
+      		<version>2.18.0</version>
+      </dependency>
+   </dependencies>
+</project>
+
+
+<!-- 
+maven-4.0.0.xsd여기에 등록 된 것을 쓸 것이다.
+우리가 패키지를 만들 때 적었던 정보들이 적혀 있다.
+수 많은 앱들 사이에 내가 만든 앱을 찾기 위해서는 위의
+정보들을 확인하면 된다.
+gradle : 메이븐과 양대산맥을 이룬다. 현장에 따라 
+       메이븐 gradle을 사용한다.
+lombok은 우리는 project lombok를 쓰고 있다. 1.18.24버전이다. 21~24번줄
+
+-->

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<beans xmlns='http://www.springframework.org/schema/beans'
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:schemaLocation='http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd'>
+   
+   <!-- Pistol을 new Pistol 한 후 pistol 객체를 만들어서 id에 담는다.-->
+   <bean id='pistol' class='spring.core.ch01.ex01.Pistol'/>
+   <bean id='rifle' class='spring.core.ch01.ex01.Rifle'/>
+   
+   <bean id='shooter1' class='spring.core.ch01.ex02.Shooter'>
+      <constructor-arg value='최한석'/> <!-- shooterName -->  <!-- 문자 숫자 날짜값을 쓸때는 value를 쓴다. -->
+      <constructor-arg ref='pistol'/> <!-- Gun gun -->
+   </bean> <!-- 자식태그를 포함시킨다. -->
+   <bean id='shooter2' class='spring.core.ch01.ex02.Shooter'>
+      <property name='shooterName' value='한아름'/> <!-- container가 shooterName에 한아름을 준다. -->
+      <property name='gun' ref='rifle'/> <!-- container안에 있는 것을 써야한다. -->
+   </bean>
+</beans>
+
+
+<!--
+ shooter에다가 gun을 넣어야 하는 상황이다.
+ 그러기 위해서는 전제가 shooter와 gun이 있어야 하는데,
+ 이를 위한 것이 바로 IoC(Inversion of Control)제어 역전이다.
+ 라이브러리 코드가 개발자의 코드를 호출하게 된다.(가내수공업)
+ 직접적으로 의존성을 만들지 않고, 
+ 외부에서 의존성을 가져오는 경우를 말한다.
+ -->
+ 
+ <!-- 
+ Bean: 스프링 IoC 컨테이너가 관리하는 객체들을 의미한다.
+  -->
+  
+  <!-- 
+  해당 방법은 과거의 방법이다. 현제는 거의 쓰지않는다.
+  과거의 방법은 우리가 직접 기재해야 하기 때문에 번거롭지만
+  개념을 익히는데 있어서는 많은 도움이 된다.
+  -->
+  
+  <!-- 웹앱을 만들기 위해서는 톰캣을 쓴다. 나중에는 톰캣에서 컨테이너를
+  만들 것이다. -->
